@@ -92,25 +92,6 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-		<!--  
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		-->
-			<plugin>
-				<groupId>com.heroku.sdk</groupId>
-				<artifactId>heroku-maven-plugin</artifactId>
-				<version>3.0.2</version>
-				<configuration>
-					<appName>soyjose-usuarios</appName>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -122,4 +103,21 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<appName>soyjose-usuarios</appName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
