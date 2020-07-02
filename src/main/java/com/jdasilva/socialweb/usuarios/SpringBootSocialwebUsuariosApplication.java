@@ -9,7 +9,7 @@ import com.jdasilva.socialweb.commons.models.entity.Usuario;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EntityScan(basePackageClasses = Usuario.class)
+@EntityScan(basePackageClasses = {Usuario.class})
 public class SpringBootSocialwebUsuariosApplication {
 
 	public static void main(String[] args) {

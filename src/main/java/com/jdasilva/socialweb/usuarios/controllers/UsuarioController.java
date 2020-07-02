@@ -44,7 +44,7 @@ public class UsuarioController {
 
 		try {
 			usuario = usuarioService.findByIdOptional(id).orElseThrow(() -> new UsuarioNoEncontrado(id.toString()));
-			
+						
 			List<Contacto> contactos = usuario.getContactos().stream()
 			.map((contacto) -> {
 				Usuario user = usuarioService.findByIdOptional(contacto.getId()).orElse(null);
