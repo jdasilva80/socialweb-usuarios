@@ -109,7 +109,7 @@ public class UsuarioController {
 				}
 				return contacto;
 
-			}).filter((u) -> !u.getUsuarioId().equals(id)).collect(Collectors.toList());
+			}).filter((u) -> !u.getUsername().equals(username)).collect(Collectors.toList());
 			// usuario.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 			usuario.setContactos(contactos);
 
@@ -118,7 +118,7 @@ public class UsuarioController {
 		} catch (DataAccessException e) {
 
 			response.put("mensaje",
-					"Error al consultar el usuario con id: ".concat(id.toString()).concat(" en la bd."));
+					"Error al consultar el usuario con username: ".concat(username.toString()).concat(" en la bd."));
 			response.put("error", e.getMessage().concat(" : ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
