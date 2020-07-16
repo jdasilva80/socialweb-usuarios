@@ -26,15 +26,23 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Optional<Usuario> findByIdOptional(Long id) {
 
 		return usuarioDao.findById(id);
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<Usuario> findAll() {
 		
 		 return StreamSupport.stream(usuarioDao.findAll().spliterator(), false) .collect(Collectors.toList());
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Usuario findByUsername(String username) {
+		return usuarioDao.findByUsername(username);
 	}
 
 }

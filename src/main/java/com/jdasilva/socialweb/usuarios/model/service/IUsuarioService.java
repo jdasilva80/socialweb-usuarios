@@ -11,5 +11,7 @@ public interface IUsuarioService {
 	
 	public Optional<Usuario> findByIdOptional(Long id);
 	
+	public Usuario findByUsername(String username);
+	
 	public List<Usuario> findAll();
 }

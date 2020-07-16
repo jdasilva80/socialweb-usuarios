@@ -44,11 +44,10 @@ public class UsuarioController {
 
 		try {
 			usuario = usuarioService.findByIdOptional(id).orElseThrow(() -> new UsuarioNoEncontrado(id.toString()));
-						
-			List<Contacto> contactos = usuario.getContactos().stream()
-			.map((contacto) -> {
+
+			List<Contacto> contactos = usuario.getContactos().stream().map((contacto) -> {
 				Usuario user = usuarioService.findByIdOptional(contacto.getId()).orElse(null);
-				if(user!=null) {
+				if (user != null) {
 					contacto.setUsername(user.getUsername());
 					contacto.setNombre(user.getNombre());
 					contacto.setApellidos(user.getApellidos());
@@ -57,12 +56,12 @@ public class UsuarioController {
 					contacto.setFechaNacimiento(user.getFechaNacimiento());
 				}
 				return contacto;
-				
+
 			}).filter((u) -> !u.getUsuarioId().equals(id)).collect(Collectors.toList());
 			// usuario.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 			usuario.setContactos(contactos);
-			
-			usuario.setPort(port);			
+
+			usuario.setPort(port);
 
 		} catch (DataAccessException e) {
 
@@ -84,10 +83,62 @@ public class UsuarioController {
 		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 
 	}
-	
+
+	@GetMapping("/{username}")
+	public ResponseEntity<?> getUsuarioByUsername(@PathVariable String username) throws Exception {
+
+		Usuario usuario = null;
+		Map<String, Object> response = new HashMap<>();
+
+		try {
+			usuario = usuarioService.findByUsername(username);
+
+			if (usuario == null) {
+				throw new UsuarioNoEncontrado(username);
+			}
+
+			List<Contacto> contactos = usuario.getContactos().stream().map((contacto) -> {
+				Usuario user = usuarioService.findByIdOptional(contacto.getId()).orElse(null);
+				if (user != null) {
+					contacto.setUsername(user.getUsername());
+					contacto.setNombre(user.getNombre());
+					contacto.setApellidos(user.getApellidos());
+					contacto.setUsuarioId(user.getId());
+					contacto.setEmail(user.getEmail());
+					contacto.setFechaNacimiento(user.getFechaNacimiento());
+				}
+				return contacto;
+
+			}).filter((u) -> !u.getUsuarioId().equals(id)).collect(Collectors.toList());
+			// usuario.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+			usuario.setContactos(contactos);
+
+			usuario.setPort(port);
+
+		} catch (DataAccessException e) {
+
+			response.put("mensaje",
+					"Error al consultar el usuario con id: ".concat(id.toString()).concat(" en la bd."));
+			response.put("error", e.getMessage().concat(" : ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		boolean ok = false;
+
+		if (ok) {
+
+			throw new Exception("error al cargar el usuario");
+		}
+
+		Thread.sleep(3000);// para generar un timeout, error por latencia
+
+		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+
+	}
+
 	@GetMapping("/all")
-	public List<Usuario> findAllUsuarios(){
-		
+	public List<Usuario> findAllUsuarios() {
+
 		return usuarioService.findAll();
 	}
 }
