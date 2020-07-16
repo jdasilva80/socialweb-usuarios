@@ -84,7 +84,7 @@ public class UsuarioController {
 
 	}
 
-	@GetMapping("/{username}")
+	@GetMapping("/username/{username}")
 	public ResponseEntity<?> getUsuarioByUsername(@PathVariable String username) throws Exception {
 
 		Usuario usuario = null;
