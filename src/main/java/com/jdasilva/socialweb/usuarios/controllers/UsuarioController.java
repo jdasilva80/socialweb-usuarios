@@ -35,6 +35,12 @@ public class UsuarioController {
 
 	@Value("${server.port}")
 	Integer port;
+	
+	@GetMapping(value = { "/prueba" })
+	public Integer prueba() {
+
+		return 1;
+	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<?> getUsuario(@PathVariable Long id) throws Exception {
