@@ -8,10 +8,13 @@ INSERT INTO authorities(role, descripcion) VALUES ('ROLE_USER', 'USER');
 INSERT INTO usuarios_authorities(usuario_id, authority_id) VALUES (1, 1);
 INSERT INTO usuarios_authorities(usuario_id, authority_id) VALUES (1, 2);
 INSERT INTO usuarios_authorities(usuario_id, authority_id) VALUES (2, 1);
+INSERT INTO usuarios_authorities(usuario_id, authority_id) VALUES (2, 2);
+INSERT INTO usuarios_authorities(usuario_id, authority_id) VALUES (3, 1);
 INSERT INTO usuarios_authorities(usuario_id, authority_id) VALUES (3, 2);
 
 INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (1, 2);
 INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (1, 1);
 INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (2, 1);
-INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (3, 1);
+INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (2, 2);
 INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (3, 2);
+INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (3, 3);
