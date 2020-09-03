@@ -14,6 +14,7 @@ INSERT INTO usuarios_authorities(usuario_id, authority_id) VALUES (3, 2);
 
 INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (1, 2);
 INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (1, 1);
+INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (1, 3);
 INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (2, 1);
 INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (2, 2);
 INSERT INTO contactos(usuario_id, contacto_usuario_id) VALUES (3, 2);
