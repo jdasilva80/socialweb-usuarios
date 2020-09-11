@@ -10,6 +10,7 @@ import com.jdasilva.socialweb.commons.models.usuarios.entity.Usuario;
 
 @Configuration
 public class RepositoryConfig implements RepositoryRestConfigurer{
+	
 
 	@Override //para poder exponer los id de los usuarios json obtenidos por @RepositoryRestResource
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
