@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jdasilva.socialweb.commons.errors.UsuarioNoEncontrado;
-import com.jdasilva.socialweb.commons.models.entity.Contacto;
-import com.jdasilva.socialweb.commons.models.entity.Usuario;
+import com.jdasilva.socialweb.commons.models.usuarios.entity.Contacto;
+import com.jdasilva.socialweb.commons.models.usuarios.entity.Usuario;
 import com.jdasilva.socialweb.usuarios.model.service.IUsuarioService;
 
 //@CrossOrigin(origins = { "http://localhost:4200" })

@@ -4,9 +4,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 
-import com.jdasilva.socialweb.commons.models.entity.Contacto;
-import com.jdasilva.socialweb.commons.models.entity.Role;
-import com.jdasilva.socialweb.commons.models.entity.Usuario;
+import com.jdasilva.socialweb.commons.models.usuarios.entity.Contacto;
+import com.jdasilva.socialweb.commons.models.usuarios.entity.Role;
+import com.jdasilva.socialweb.commons.models.usuarios.entity.Usuario;
 
 @Configuration
 public class RepositoryConfig implements RepositoryRestConfigurer{
